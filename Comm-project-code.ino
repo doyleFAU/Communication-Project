@@ -7,11 +7,11 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-// ---------- Wi-Fi ----------
+//Wi-Fi
 const char SSID[] = "Anonymous";
 const char PASS[] = "SUBWAY69";
 
-// ---------- Sensors ----------
+//Sensors
 #define TEMP_SENSOR_PIN 13
 #define WATER_LEVEL_PIN A0
 #define PH_SENSOR_PIN A1
@@ -26,13 +26,13 @@ void increase() {
   pulse++;
 }
 
-// ---------- Arduino Cloud Variables ----------
+// Arduino Cloud Variables
 float temperature;
 int waterLevel;
 float ph;
 int waterFlow;
 
-// ---------- Connection Handler ----------
+//Connection Handler
 WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
 
 void setup() {
@@ -69,7 +69,7 @@ void loop() {
   // Required for Arduino Cloud
   ArduinoCloud.update();
 
-  // --- Read Sensors ---
+  //Read Sensors
   sensors.requestTemperatures();
   temperature = sensors.getTempFByIndex(0);
 
@@ -83,7 +83,7 @@ void loop() {
   pulse = 0;
   interrupts();
 
-  // --- Serial Debug ---
+  //Serial Debug
   Serial.print("Temperature: "); Serial.println(temperature);
   Serial.print("Water Level: "); Serial.println(waterLevel);
   Serial.print("pH: "); Serial.println(ph);
