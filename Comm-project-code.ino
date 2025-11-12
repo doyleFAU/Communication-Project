@@ -8,8 +8,8 @@
 #include <DallasTemperature.h>
 
 //Wi-Fi
-const char SSID[] = "Anonymous";
-const char PASS[] = "SUBWAY69";
+const char SSID[] = "WIFINAME";
+const char PASS[] = "PASSWORD";
 
 //Sensors
 #define TEMP_SENSOR_PIN 13
